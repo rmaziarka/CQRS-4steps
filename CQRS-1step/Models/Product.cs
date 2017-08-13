@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CQRS_1step.Model
+﻿namespace CQRS_1step.Models
 {
     public class Product
     {

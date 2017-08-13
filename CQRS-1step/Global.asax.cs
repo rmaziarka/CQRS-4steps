@@ -1,8 +1,10 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using CQRS_1step.Models;
 using MediatR;
 
 namespace CQRS_1step
@@ -27,6 +29,8 @@ namespace CQRS_1step
             builder.RegisterWebApiModelBinderProvider();
             ConfigureMediatR(builder);
 
+            builder.RegisterType<ProductDatabase>().AsSelf().InstancePerRequest();
+            
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
@@ -34,14 +38,11 @@ namespace CQRS_1step
 
         private static void ConfigureMediatR(ContainerBuilder builder)
         {
+            builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly).AsImplementedInterfaces();
+
             var mediatrOpenTypes = new[]
              {
-                typeof(IRequestHandler<,>),
-                typeof(IAsyncRequestHandler<,>),
-                typeof(ICancellableAsyncRequestHandler<,>),
-                typeof(INotificationHandler<>),
-                typeof(IAsyncNotificationHandler<>),
-                typeof(ICancellableAsyncNotificationHandler<>)
+                typeof(IRequestHandler<,>)
             };
 
             foreach (var mediatrOpenType in mediatrOpenTypes)
@@ -51,7 +52,21 @@ namespace CQRS_1step
                     .AsClosedTypesOf(mediatrOpenType)
                     .AsImplementedInterfaces();
             }
+            builder.Register<SingleInstanceFactory>(ctx =>
+            {
+                var c = ctx.Resolve<IComponentContext>();
+                return t =>
+                {
+                    object o;
+                    return c.TryResolve(t, out o) ? o : null;
+                };
+            });
 
+            builder.Register<MultiInstanceFactory>(ctx =>
+            {
+                var c = ctx.Resolve<IComponentContext>();
+                return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
+            });
         }
     }
 }

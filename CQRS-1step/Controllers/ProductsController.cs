@@ -1,15 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
-using CQRS_1step.Model;
+using CQRS_1step.Domain.Products;
+using CQRS_1step.Models;
+using MediatR;
 
 namespace CQRS_1step.Controllers
 {
     public class ProductsController : ApiController
     {
-        // GET api/values
-        public IEnumerable<Product> Get()
+        private IMediator mediator;
+
+        public ProductsController(IMediator mediator)
         {
-            return new string[] { "value1", "value2" };
+            this.mediator = mediator;
+        }
+
+        public async Task<IEnumerable<Product>> Get([FromUri]GetProductsQuery query)
+        {
+            return await this.mediator.Send(query);
         }
 
         // GET api/values/5
