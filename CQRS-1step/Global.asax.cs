@@ -42,7 +42,8 @@ namespace CQRS_1step
 
             var mediatrOpenTypes = new[]
              {
-                typeof(IRequestHandler<,>)
+                typeof(IRequestHandler<,>),
+                typeof(IRequestHandler<>)
             };
 
             foreach (var mediatrOpenType in mediatrOpenTypes)

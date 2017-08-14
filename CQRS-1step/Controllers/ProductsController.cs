@@ -8,6 +8,7 @@ using MediatR;
 
 namespace CQRS_1step.Controllers
 {
+    [RoutePrefix("products")]
     public class ProductsController : ApiController
     {
         private IMediator mediator;
@@ -17,30 +18,20 @@ namespace CQRS_1step.Controllers
             this.mediator = mediator;
         }
 
+        [HttpGet]
+        [Route("")]
         public async Task<IEnumerable<Product>> Get([FromUri]GetProductsQuery query)
         {
             return await this.mediator.Send(query);
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [HttpPut]
+        [Route("{productId}/category")]
+        public async Task ChangeCategory(int productId, ChangeProductCategoryCommand command)
         {
-            return "value";
-        }
+            command.ProductId = productId;
 
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            await this.mediator.Send(command);
         }
     }
 }
