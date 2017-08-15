@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using CQRS_1step.Models;
+using CQRS_step1.Models;
 using MediatR;
 
-namespace CQRS_1step.Domain.Products
+namespace CQRS_step1.Domain.Products
 {
     public class GetProductsQueryHandler:IRequestHandler<GetProductsQuery, IEnumerable<Product>>
     {

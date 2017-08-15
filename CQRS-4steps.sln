@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-1step", "CQRS-1step\CQRS-1step.csproj", "{8B714BCB-181E-4102-97F4-542FA94E0AF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-step1", "CQRS-step1\CQRS-step1.csproj", "{8B714BCB-181E-4102-97F4-542FA94E0AF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

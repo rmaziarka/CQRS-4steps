@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CQRS_1step.Domain.Products;
-using CQRS_1step.Models;
+using CQRS_step1.Domain.Products;
+using CQRS_step1.Models;
 using MediatR;
 
-namespace CQRS_1step.Controllers
+namespace CQRS_step1.Controllers
 {
     [RoutePrefix("products")]
     public class ProductsController : ApiController

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MediatR;
+﻿using MediatR;
 
-namespace CQRS_1step.Domain.Products
+namespace CQRS_step1.Domain.Products
 {
     public class ChangeProductCategoryCommand:IRequest
     {

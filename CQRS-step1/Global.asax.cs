@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-using CQRS_1step.Models;
+using CQRS_step1.Models;
 using MediatR;
 
-namespace CQRS_1step
+namespace CQRS_step1
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

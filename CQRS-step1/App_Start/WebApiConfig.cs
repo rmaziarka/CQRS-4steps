@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace CQRS_1step
+namespace CQRS_step1
 {
     public static class WebApiConfig
     {

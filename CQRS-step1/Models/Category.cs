@@ -1,4 +1,4 @@
-﻿namespace CQRS_1step.Models
+﻿namespace CQRS_step1.Models
 {
     public class Category
     {

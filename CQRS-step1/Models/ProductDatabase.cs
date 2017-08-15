@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 
-namespace CQRS_1step.Models
+namespace CQRS_step1.Models
 {
     public class ProductDatabase : DbContext
     {
