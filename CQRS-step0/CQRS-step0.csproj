@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8B714BCB-181E-4102-97F4-542FA94E0AF7}</ProjectGuid>
+    <ProjectGuid>{9F7E2862-EF15-465D-982D-BCF089DFC56E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CQRS_step1</RootNamespace>
-    <AssemblyName>CQRS-step1</AssemblyName>
+    <RootNamespace>CQRS_step0</RootNamespace>
+    <AssemblyName>CQRS-step0</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -58,10 +58,6 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -146,10 +142,6 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Domain\Categories\ChangeProductCategoryCommand.cs" />
-    <Compile Include="Domain\Categories\ChangeProductCategoryCommandHandler.cs" />
-    <Compile Include="Domain\Products\GetProductsQuery.cs" />
-    <Compile Include="Domain\Products\GetProductsQueryHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,6 +149,12 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Categories\CategoriesService.cs" />
+    <Compile Include="Services\Categories\ChangeProductCategoryDto.cs" />
+    <Compile Include="Services\Categories\ICategoriesService.cs" />
+    <Compile Include="Services\Products\GetProductsDto.cs" />
+    <Compile Include="Services\Products\IProductsService.cs" />
+    <Compile Include="Services\Products\ProductsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -192,7 +190,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55015</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55011/</IISUrl>
+          <IISUrl>http://localhost:55010/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

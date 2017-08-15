@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CQRS_step1.Domain.Products
+namespace CQRS_step1.Domain.Categories
 {
     public class ChangeProductCategoryCommand:IRequest
     {
