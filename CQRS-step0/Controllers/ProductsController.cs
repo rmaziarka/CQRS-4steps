@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using CQRS_step0.Models;
 using CQRS_step0.Services;
-using CQRS_step0.Services.Categories;
 using CQRS_step0.Services.Products;
 
 namespace CQRS_step0.Controllers
@@ -11,14 +10,11 @@ namespace CQRS_step0.Controllers
     [RoutePrefix("products")]
     public class ProductsController : ApiController
     {
-        private IProductsService _productsService;
-        private ICategoriesService _categoriesService;
+        private readonly IProductsService _productsService;
 
-        public ProductsController(IProductsService productsService, 
-            ICategoriesService categoriesService)
+        public ProductsController(IProductsService productsService)
         {
             _productsService = productsService;
-            _categoriesService = categoriesService;
         }
 
 
@@ -35,8 +31,7 @@ namespace CQRS_step0.Controllers
         {
             dto.ProductId = productId;
 
-            _categoriesService.ChangeProductCategory(dto);
-
+            _productsService.ChangeProductCategory(dto);
         }
     }
 }

@@ -142,12 +142,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Domain\Categories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Domain\Categories\ChangeProductCategoryCommand.cs" />
-    <Compile Include="Domain\Categories\ChangeProductCategoryCommandHandler.cs" />
+    <Compile Include="Domain\Products\ChangeProductCategoryCommand.cs" />
+    <Compile Include="Domain\Products\ChangeProductCategoryCommandHandler.cs" />
     <Compile Include="Domain\Products\GetProductsQuery.cs" />
     <Compile Include="Domain\Products\GetProductsQueryHandler.cs" />
     <Compile Include="Global.asax.cs">

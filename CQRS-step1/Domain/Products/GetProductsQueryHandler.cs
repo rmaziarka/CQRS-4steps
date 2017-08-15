@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CQRS_step1.Domain.Products
 {
-    public class GetProductsQueryHandler:IRequestHandler<GetProductsQuery, IEnumerable<Product>>
+    public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, IEnumerable<Product>>
     {
         private readonly ProductDatabase _database;
 

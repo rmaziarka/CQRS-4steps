@@ -2,9 +2,9 @@
 using CQRS_step1.Models;
 using MediatR;
 
-namespace CQRS_step1.Domain.Categories
+namespace CQRS_step1.Domain.Products
 {
-    public class ChangeProductCategoryCommandHandler:IRequestHandler<ChangeProductCategoryCommand>
+    public class ChangeProductCategoryCommandHandler : IRequestHandler<ChangeProductCategoryCommand>
     {
         private readonly ProductDatabase _database;
 

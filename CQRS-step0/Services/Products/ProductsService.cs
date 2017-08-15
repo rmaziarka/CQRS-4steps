@@ -24,5 +24,14 @@ namespace CQRS_step0.Services.Products
                 .Take(dto.Take)
                 .ToList();
         }
+
+        public void ChangeProductCategory(ChangeProductCategoryDto dto)
+        {
+            var product = _database.Products.First(p => p.Id == dto.ProductId);
+
+            product.CategoryId = dto.CategoryId;
+
+            _database.SaveChanges();
+        }
     }
 }

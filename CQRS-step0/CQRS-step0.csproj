@@ -149,9 +149,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Categories\CategoriesService.cs" />
-    <Compile Include="Services\Categories\ChangeProductCategoryDto.cs" />
-    <Compile Include="Services\Categories\ICategoriesService.cs" />
+    <Compile Include="Services\Products\ChangeProductCategoryDto.cs" />
     <Compile Include="Services\Products\GetProductsDto.cs" />
     <Compile Include="Services\Products\IProductsService.cs" />
     <Compile Include="Services\Products\ProductsService.cs" />

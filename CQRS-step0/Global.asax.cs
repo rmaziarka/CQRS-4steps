@@ -30,7 +30,6 @@ namespace CQRS_step0
             builder.RegisterWebApiModelBinderProvider();
 
             builder.RegisterType<ProductsService>().As<IProductsService>();
-            builder.RegisterType<CategoriesService>().As<ICategoriesService>();
             builder.RegisterType<ProductDatabase>().AsSelf().InstancePerRequest();
             
             // Set the dependency resolver to be Autofac.

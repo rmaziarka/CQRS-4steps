@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CQRS_step0.Services.Categories
+﻿namespace CQRS_step0.Services.Products
 {
     public class ChangeProductCategoryDto
     {

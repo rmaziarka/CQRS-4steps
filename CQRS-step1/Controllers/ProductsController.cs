@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CQRS_step1.Domain.Categories;
 using CQRS_step1.Domain.Products;
 using CQRS_step1.Models;
 using MediatR;
@@ -11,7 +10,7 @@ namespace CQRS_step1.Controllers
     [RoutePrefix("products")]
     public class ProductsController : ApiController
     {
-        private IMediator mediator;
+        private readonly IMediator mediator;
 
         public ProductsController(IMediator mediator)
         {
