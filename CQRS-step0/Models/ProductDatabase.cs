@@ -12,6 +12,7 @@ namespace CQRS_step0.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Field> Attributes { get; set; }
 
     }
 
@@ -35,6 +36,30 @@ namespace CQRS_step0.Models
                         Name = "Fashion"
                     },
                     new Category()
+                    {
+                        Id = 3,
+                        Name = "Sport"
+                    },
+                }
+            );
+
+            context.SaveChanges();
+
+            context.Attributes.AddRange(
+                new List<Field>()
+                {
+                    new Field()
+                    {
+                        Id = 1,
+                        CategoryId = 1,
+                        Name = "Electronics"
+                    },
+                    new Field()
+                    {
+                        Id = 2,
+                        Name = "Fashion"
+                    },
+                    new Field()
                     {
                         Id = 3,
                         Name = "Sport"
