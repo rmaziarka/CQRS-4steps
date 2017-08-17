@@ -12,7 +12,7 @@ namespace CQRS_step0.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-
+        public DbSet<Field> Fields { get; set; }
     }
 
 

@@ -146,10 +146,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Field.cs" />
+    <Compile Include="Models\FieldValue.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Products\ChangeProductCategoryDto.cs" />
+    <Compile Include="Services\Products\ChangeProductFieldValueDto.cs" />
     <Compile Include="Services\Products\GetProductsDto.cs" />
     <Compile Include="Services\Products\IProductsService.cs" />
     <Compile Include="Services\Products\ProductsService.cs" />
