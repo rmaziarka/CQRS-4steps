@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CQRS_step1.Models
+namespace CQRS_step3.Models
 {
     public class Product
     {

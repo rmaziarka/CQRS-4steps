@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace CQRS_step0.Models
+namespace CQRS_step3.Models
 {
-    public class Product
+    public class Field
     {
         public int Id { get; set; }
 
@@ -12,6 +12,12 @@ namespace CQRS_step0.Models
 
         public Category Category { get; set; }
 
-        public List<FieldValue> FieldValues { get; set; }
+        public IEnumerable<ValidationRule> ValidationRules { get; set; }
     }
+
+    public class IntegerField : Field { }
+
+    public class StringField : Field { }
+
+    // etc.
 }

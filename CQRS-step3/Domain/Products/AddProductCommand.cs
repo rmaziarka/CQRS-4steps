@@ -1,6 +1,8 @@
-﻿namespace CQRS_step0.Services.Products
+﻿using MediatR;
+
+namespace CQRS_step3.Domain.Products
 {
-    public class ChangeProductCategoryDto
+    public class AddProductCommand : IRequest
     {
         public int ProductId { get; set; }
 

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-step1", "CQRS-step1\CQRS-step1.csproj", "{8B714BCB-181E-4102-97F4-542FA94E0AF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-step0", "CQRS-step0\CQRS-step0.csproj", "{9F7E2862-EF15-465D-982D-BCF089DFC56E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-step3", "CQRS-step3\CQRS-step3.csproj", "{8AE8877E-5AB1-49A5-958A-5C21AB230D0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,15 @@ Global
 		{9F7E2862-EF15-465D-982D-BCF089DFC56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F7E2862-EF15-465D-982D-BCF089DFC56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F7E2862-EF15-465D-982D-BCF089DFC56E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE8877E-5AB1-49A5-958A-5C21AB230D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE8877E-5AB1-49A5-958A-5C21AB230D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE8877E-5AB1-49A5-958A-5C21AB230D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE8877E-5AB1-49A5-958A-5C21AB230D0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBDE31A7-CCA7-4330-B8DB-ED21B4BB72AC}
 	EndGlobalSection
 EndGlobal
