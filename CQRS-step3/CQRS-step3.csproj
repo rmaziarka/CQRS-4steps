@@ -153,14 +153,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="WebApiConfig.cs" />
     <Compile Include="Domain\Orders\CommandHandlers\CompleteOrderCommandHandler.cs" />
     <Compile Include="Domain\Orders\Models\Order.cs" />
     <Compile Include="Domain\ProductsManagememt\CommandHandlers\ChangeFieldValueCommandHandler.cs" />
     <Compile Include="Domain\ProductsManagememt\CommandHandlers\AddProductCommandHandler.cs" />
     <Compile Include="Domain\Store\CommandHandlers\AddReviewCommandHandler.cs" />
     <Compile Include="Domain\Store\Models\Review.cs" />
-    <Compile Include="Events\EventHandlers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
