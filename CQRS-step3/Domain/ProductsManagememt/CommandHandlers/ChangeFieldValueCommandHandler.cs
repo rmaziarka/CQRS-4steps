@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CQRS_step3.Events;
-using CQRS_step3.Models;
+﻿using CQRS_step3.Database;
+using CQRS_step3.Domain.ProductsManagememt.Commands;
+using CQRS_step3.Domain.ProductsManagememt.Events;
 using MediatR;
 
-namespace CQRS_step3.Domain.Products
+namespace CQRS_step3.Domain.ProductsManagememt.CommandHandlers
 {
-    public class ChangeFieldValueCommandHandler
+    public class ChangeFieldValueCommandHandler: IRequestHandler<ChangeFieldValueCommand>
     {
-        private readonly ProductDatabase _database;
+        private readonly CqrsDatabase _database;
         private readonly IMediator _mediator;
 
-        public ChangeFieldValueCommandHandler(ProductDatabase database, IMediator mediator)
+        public ChangeFieldValueCommandHandler(CqrsDatabase database, IMediator mediator)
         {
             _database = database;
             _mediator = mediator;

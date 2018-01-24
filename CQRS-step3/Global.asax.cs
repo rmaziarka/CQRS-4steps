@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Filters;
 using Autofac;
 using Autofac.Integration.WebApi;
-using CQRS_step3.Models;
+using CQRS_step3.Database;
 using MediatR;
 
 namespace CQRS_step3
@@ -28,8 +34,11 @@ namespace CQRS_step3
             builder.RegisterWebApiModelBinderProvider();
             ConfigureMediatR(builder);
 
-            builder.RegisterType<ProductDatabase>().AsSelf().InstancePerRequest();
-            
+            builder.RegisterType<CqrsDatabase>().AsSelf().InstancePerRequest();
+
+            builder.Register(c => new TransactionActionFilter(c.Resolve<SqlConnection>()))
+                .AsWebApiActionFilterFor<ApiController>();
+
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
@@ -67,6 +76,29 @@ namespace CQRS_step3
                 var c = ctx.Resolve<IComponentContext>();
                 return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
             });
+        }
+    }
+
+    public class TransactionActionFilter : IAutofacActionFilter
+    {
+        private readonly SqlConnection _sqlConnection;
+        private SqlTransaction _transaction;
+
+        public TransactionActionFilter(SqlConnection sqlConnection)
+        {
+            this._sqlConnection = sqlConnection;
+        }
+
+        public Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
+        {
+            this._transaction.Commit();
+            return Task.CompletedTask;
+        }
+
+        public Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+        {
+            this._transaction = this._sqlConnection.BeginTransaction();
+            return Task.CompletedTask;
         }
     }
 }

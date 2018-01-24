@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using CQRS_step3.Events;
 
-namespace CQRS_step3.Models
+namespace CQRS_step3.Domain.Store.Models
 {
     public class ProductReadModel
     {

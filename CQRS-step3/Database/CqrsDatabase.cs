@@ -1,24 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using CQRS_step3.Domain.ProductsManagememt.Models;
 
-namespace CQRS_step3.Models
+namespace CQRS_step3.Database
 {
-    public class ProductDatabase : DbContext
+    public class CqrsDatabase : DbContext
     {
-        public ProductDatabase()
+        public CqrsDatabase()
         {
-            Database.SetInitializer(new ProductDatabaseInitializer());
+            System.Data.Entity.Database.SetInitializer(new ProductDatabaseInitializer());
         }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        //..
     }
 
 
-    public class ProductDatabaseInitializer : DropCreateDatabaseAlways<ProductDatabase>
+    public class ProductDatabaseInitializer : DropCreateDatabaseAlways<CqrsDatabase>
     {
-        protected override void Seed(ProductDatabase context)
+        protected override void Seed(CqrsDatabase context)
         {
 
             context.Categories.AddRange(

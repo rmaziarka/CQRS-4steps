@@ -27,11 +27,8 @@ namespace CQRS_step0.Controllers
 
         [HttpPut]
         [Route("{productId}/category")]
-        public void ChangeCategory(int productId, ChangeProductFieldValueDto dto)
+        public void ChangeCategory(int productId)
         {
-            dto.ProductId = productId;
-
-            _productsService.ChangeProductCategory(dto);
         }
     }
 }

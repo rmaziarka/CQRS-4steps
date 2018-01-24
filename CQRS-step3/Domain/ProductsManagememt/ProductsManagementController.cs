@@ -1,27 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CQRS_step3.Domain.Products;
-using CQRS_step3.Models;
+using CQRS_step3.Domain.ProductsManagememt.Models;
 using MediatR;
 
-namespace CQRS_step3.Controllers
+namespace CQRS_step3.Domain.ProductsManagememt
 {
-    [RoutePrefix("products")]
-    public class ProductsController : ApiController
+    [RoutePrefix("productManagement")]
+    public class ProductsManagementController : ApiController
     {
-        private readonly IMediator mediator;
+        private readonly IMediator _mediator;
 
-        public ProductsController(IMediator mediator)
+        public ProductsManagementController(IMediator mediator)
         {
-            this.mediator = mediator;
+            this._mediator = mediator;
         }
 
         [HttpGet]
         [Route("")]
         public async Task<IEnumerable<Product>> Get([FromUri]GetProductsQuery query)
         {
-            return await this.mediator.Send(query);
+            return await this._mediator.Send(query);
         }
 
         [HttpPut]
@@ -30,7 +29,7 @@ namespace CQRS_step3.Controllers
         {
             command.ProductId = productId;
 
-            await this.mediator.Send(command);
+            await this._mediator.Send(command);
         }
     }
 }

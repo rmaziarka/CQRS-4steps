@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using CQRS_step3.Models;
+using CQRS_step3.Domain.Orders.Events;
+using CQRS_step3.Domain.ProductsManagememt.Events;
+using CQRS_step3.Domain.Store.Events;
+using CQRS_step3.Domain.Store.Models;
 using Dapper;
 using MediatR;
 
