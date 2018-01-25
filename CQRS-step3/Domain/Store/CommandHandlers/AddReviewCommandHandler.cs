@@ -1,6 +1,7 @@
 ﻿using CQRS_step3.Database;
 using CQRS_step3.Domain.Store.Commands;
 using CQRS_step3.Domain.Store.Events;
+using CQRS_step3.Domain.Store.Models;
 using MediatR;
 
 namespace CQRS_step3.Domain.Store.CommandHandlers
@@ -19,7 +20,10 @@ namespace CQRS_step3.Domain.Store.CommandHandlers
         public int Handle(AddReviewCommand command)
         {
             // command validation
-            // add review to database
+            var review = new Review(command.ProductId, command.UserId, command.Rating);
+            _database.Reviews.Add(review);
+            _database.SaveChanges();
+
 
             var @event = new ReviewAddedEvent(review.Id, review.UserId, review.ProductId, review.Rating);
             _mediator.Publish(@event);

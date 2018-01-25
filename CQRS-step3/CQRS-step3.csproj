@@ -151,8 +151,12 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Compile Include="Database\201801252324249_Initial.cs" />
+    <Compile Include="Database\201801252324249_Initial.Designer.cs">
+      <DependentUpon>201801252324249_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CqrsDatabaseMigrationsConfiguration.cs" />
     <Compile Include="WebApiConfig.cs" />
     <Compile Include="Domain\Orders\CommandHandlers\CompleteOrderCommandHandler.cs" />
     <Compile Include="Domain\Orders\Models\Order.cs" />
@@ -173,14 +177,14 @@
     <Compile Include="Domain\ProductsManagememt\Models\Product.cs" />
     <Compile Include="Database\CqrsDatabase.cs" />
     <Compile Include="Domain\Store\Models\ProductReadModel.cs" />
-    <Compile Include="Domain\Orders\OrdersController.cs" />
+    <Compile Include="Api\OrdersController.cs" />
     <Compile Include="Domain\ProductsManagememt\Events\ProductAddedEvent.cs" />
     <Compile Include="Domain\ProductsManagememt\Events\FieldValueChangedEvent.cs" />
     <Compile Include="Domain\Store\Commands\AddReviewCommand.cs" />
     <Compile Include="Domain\Store\Events\ReviewAddedEvent.cs" />
-    <Compile Include="Domain\ProductsManagememt\ProductsManagementController.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Domain\Store\StoreController.cs" />
+    <Compile Include="Api\ProductsManagementController.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Api\StoreController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -193,7 +197,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Database\201801252324249_Initial.resx">
+      <DependentUpon>201801252324249_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

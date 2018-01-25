@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
-using CQRS_step3.Events;
+using CQRS_step3.Domain.Orders.Events;
+using CQRS_step3.Domain.ProductsManagememt.Events;
+using CQRS_step3.Domain.Store.Events;
 
 namespace CQRS_step3.Domain.Store.Models
 {
@@ -31,17 +33,17 @@ namespace CQRS_step3.Domain.Store.Models
             Review.Apply(@event);
         }
 
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public int CategoryId { get; set; }
+        public int CategoryId { get; private set; }
 
-        public int OrderAmount { get; set; }
+        public int OrderAmount { get; private set; }
 
-        public ReviewReadModel Review { get; set; }
+        public ReviewReadModel Review { get; private set; }
 
-        public Dictionary<int, object> FieldValues { get; set; }
+        public Dictionary<int, object> FieldValues { get; private set; }
     }
 
     public class ReviewReadModel

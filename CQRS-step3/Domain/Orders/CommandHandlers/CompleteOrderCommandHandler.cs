@@ -1,6 +1,7 @@
 ﻿using CQRS_step3.Database;
 using CQRS_step3.Domain.Orders.Commands;
 using CQRS_step3.Domain.Orders.Events;
+using CQRS_step3.Domain.Orders.Models;
 using MediatR;
 
 namespace CQRS_step3.Domain.Orders.CommandHandlers
@@ -18,8 +19,10 @@ namespace CQRS_step3.Domain.Orders.CommandHandlers
 
         public int Handle(CompleteOrderCommand command)
         {
-            // command validation
-            // create order in database
+            // command validation ommited
+            var order = new Order(command.ProductId, command.Amount);
+            _database.Orders.Add(order);
+            _database.SaveChanges();
 
             var @event = new OrderCompletedEvent(order.Id, order.ProductId, order.Amount);
             _mediator.Publish(@event);

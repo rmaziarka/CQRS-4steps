@@ -2,20 +2,20 @@
 {
     public class Field
     {
-        public int Id { get; }
+        public int Id { get; private set; }
 
-        public string Name { get; }
+        public string Name { get; private set; }
 
-        public int CategoryId { get; }
+        public int CategoryId { get; private set; }
 
-        public Category Category { get; }
+        public virtual Category Category { get; private set; }
 
-        //public IEnumerable<ValidationRule> ValidationRules { get; }
+        public virtual FieldType FieldType { get; private set; }
     }
 
-    public class IntegerField : Field { }
-
-    public class StringField : Field { }
-
-    // etc.
+    public enum FieldType
+    {
+        String,
+        Integer
+    }
 }

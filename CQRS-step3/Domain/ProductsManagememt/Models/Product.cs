@@ -4,14 +4,20 @@ namespace CQRS_step3.Domain.ProductsManagememt.Models
 {
     public class Product
     {
-        public int Id { get; } 
+        public Product(string name, int categoryId)
+        {
+            Name = name;
+            CategoryId = categoryId;
+        }
 
-        public string Name { get; }
+        public int Id { get; private set; }
 
-        public int CategoryId { get; }
+        public string Name { get; private set; }
 
-        public Category Category { get; }
+        public int CategoryId { get; private set; }
 
-        public IEnumerable<Field> FieldValues  { get; }
+        public virtual Category Category { get; private set; }
+
+        public virtual IEnumerable<Field> FieldValues  { get; private set; }
     }
 }

@@ -1,90 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using CQRS_step3.Domain.Orders.Models;
 using CQRS_step3.Domain.ProductsManagememt.Models;
+using CQRS_step3.Domain.Store.Models;
 
 namespace CQRS_step3.Database
 {
     public class CqrsDatabase : DbContext
     {
-        public CqrsDatabase()
-        {
-            System.Data.Entity.Database.SetInitializer(new ProductDatabaseInitializer());
-        }
-
         public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-
-        //..
-    }
-
-
-    public class ProductDatabaseInitializer : DropCreateDatabaseAlways<CqrsDatabase>
-    {
-        protected override void Seed(CqrsDatabase context)
-        {
-
-            context.Categories.AddRange(
-                new List<Category>()
-                {
-                    new Category()
-                    {
-                        Id = 1,
-                        Name = "Electronics"
-                    },
-                    new Category()
-                    {
-                        Id = 2,
-                        Name = "Fashion"
-                    },
-                    new Category()
-                    {
-                        Id = 3,
-                        Name = "Sport"
-                    },
-                }
-            );
-
-            context.SaveChanges();
-
-            context.Products.AddRange(new List<Product>()
-            {
-                new Product()
-                {
-                    Id = 1,
-                    CategoryId = 1,
-                    Name = "Laptop"
-                },
-                new Product()
-                {
-                    Id = 2,
-                    CategoryId = 1,
-                    Name = "LCD"
-                },
-                new Product()
-                {
-                    Id = 3,
-                    CategoryId = 2,
-                    Name = "T-Shirt"
-                },
-                new Product()
-                {
-                    Id = 4,
-                    CategoryId = 2,
-                    Name = "Jeans"
-                },
-                new Product()
-                {
-                    Id = 5,
-                    CategoryId = 3,
-                    Name = "Volleyball"
-                },
-                new Product()
-                {
-                    Id = 6,
-                    CategoryId = 3,
-                    Name = "Roller skates"
-                },
-            });
-        }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<FieldValue> FieldValues { get; set; }
+        public DbSet<Review> Reviews { get; set; }
     }
 }

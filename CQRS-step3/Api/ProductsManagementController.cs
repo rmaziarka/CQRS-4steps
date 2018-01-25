@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using CQRS_step3.Domain.ProductsManagememt.Commands;
 using CQRS_step3.Domain.ProductsManagememt.Models;
 using MediatR;
 
-namespace CQRS_step3.Domain.ProductsManagememt
+namespace CQRS_step3.Api
 {
     [RoutePrefix("productManagement")]
     public class ProductsManagementController : ApiController
@@ -17,17 +18,17 @@ namespace CQRS_step3.Domain.ProductsManagememt
         }
 
         [HttpGet]
-        [Route("")]
-        public async Task<IEnumerable<Product>> Get([FromUri]GetProductsQuery query)
+        [Route("product")]
+        public async Task<int> AddProduct([FromUri]AddProductCommand command)
         {
-            return await this._mediator.Send(query);
+            return await this._mediator.Send(command);
         }
 
         [HttpPut]
-        [Route("{productId}/category")]
-        public async Task ChangeCategory(int productId, ChangeProductCategoryCommand command)
+        [Route("fieldValue/{fieldValueId}")]
+        public async Task ChangeFieldValue(int fieldValueId, ChangeFieldValueCommand command)
         {
-            command.ProductId = productId;
+            command.FieldValueId = fieldValueId;
 
             await this._mediator.Send(command);
         }

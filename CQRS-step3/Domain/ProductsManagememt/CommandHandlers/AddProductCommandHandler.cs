@@ -1,6 +1,7 @@
 ﻿using CQRS_step3.Database;
 using CQRS_step3.Domain.ProductsManagememt.Commands;
 using CQRS_step3.Domain.ProductsManagememt.Events;
+using CQRS_step3.Domain.ProductsManagememt.Models;
 using MediatR;
 
 namespace CQRS_step3.Domain.ProductsManagememt.CommandHandlers
@@ -18,8 +19,10 @@ namespace CQRS_step3.Domain.ProductsManagememt.CommandHandlers
 
         public int Handle(AddProductCommand command)
         {
-            // command validation
-            // add product to database
+            // command validation ommited
+            var product = new Product(command.Name, command.CategoryId);
+            _database.Products.Add(product);
+            _database.SaveChanges();
 
             var @event = new ProductAddedEvent(product.Id, product.Name, product.CategoryId);
             _mediator.Publish(@event);

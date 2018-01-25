@@ -7,9 +7,16 @@ namespace CQRS_step3.Domain.Orders.Models
 {
     public class Order
     {
-        public int Id { get; }
-        public int ProductId { get; }
+        public Order(int productId, int amount)
+        {
+            ProductId = productId;
+            Amount = amount;
+        }
 
-        public int Amount { get; }
+        public int Id { get; private set; }
+
+        public int ProductId { get; private set; }
+
+        public int Amount { get; private set; }
     }
 }

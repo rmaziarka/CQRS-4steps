@@ -35,10 +35,7 @@ namespace CQRS_step3
             ConfigureMediatR(builder);
 
             builder.RegisterType<CqrsDatabase>().AsSelf().InstancePerRequest();
-
-            builder.Register(c => new TransactionActionFilter(c.Resolve<SqlConnection>()))
-                .AsWebApiActionFilterFor<ApiController>();
-
+            
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
@@ -76,29 +73,6 @@ namespace CQRS_step3
                 var c = ctx.Resolve<IComponentContext>();
                 return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
             });
-        }
-    }
-
-    public class TransactionActionFilter : IAutofacActionFilter
-    {
-        private readonly SqlConnection _sqlConnection;
-        private SqlTransaction _transaction;
-
-        public TransactionActionFilter(SqlConnection sqlConnection)
-        {
-            this._sqlConnection = sqlConnection;
-        }
-
-        public Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
-        {
-            this._transaction.Commit();
-            return Task.CompletedTask;
-        }
-
-        public Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
-        {
-            this._transaction = this._sqlConnection.BeginTransaction();
-            return Task.CompletedTask;
         }
     }
 }
