@@ -158,7 +158,6 @@
     <Compile Include="Domain\Products\ChangeProductCategoryCommand.cs" />
     <Compile Include="Domain\Products\ChangeProductCategoryCommandHandler.cs" />
     <Compile Include="Domain\Products\GetProductsQuery.cs" />
-    <Compile Include="Domain\Products\GetProductsQueryHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
