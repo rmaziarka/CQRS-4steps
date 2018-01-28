@@ -11,8 +11,6 @@ namespace CQRS_step1.Models
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
-
-        public IEnumerable<ValidationRule> ValidationRules { get; set; }
     }
 
     public class IntegerField : Field { }
