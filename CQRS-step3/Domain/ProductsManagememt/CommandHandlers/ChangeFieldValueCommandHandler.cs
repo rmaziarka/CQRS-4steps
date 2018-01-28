@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using CQRS_step3.Database;
 using CQRS_step3.Domain.ProductsManagememt.Commands;
-using CQRS_step3.Domain.ProductsManagememt.Events;
+using CQRS_step3.Events;
 using MediatR;
 
 namespace CQRS_step3.Domain.ProductsManagememt.CommandHandlers

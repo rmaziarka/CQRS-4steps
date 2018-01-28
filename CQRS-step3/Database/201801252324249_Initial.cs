@@ -18,8 +18,8 @@ namespace CQRS_step3.Database
                         StringValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Fields", t => t.FieldId, cascadeDelete: true)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Fields", t => t.FieldId, cascadeDelete: false)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: false)
                 .Index(t => t.FieldId)
                 .Index(t => t.ProductId);
             
@@ -33,7 +33,7 @@ namespace CQRS_step3.Database
                         FieldType = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: false)
                 .Index(t => t.CategoryId);
             
             CreateTable(
@@ -54,7 +54,7 @@ namespace CQRS_step3.Database
                         CategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: false)
                 .Index(t => t.CategoryId);
             
             CreateTable(

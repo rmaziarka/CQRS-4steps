@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using CQRS_step3.Domain.Orders.Events;
-using CQRS_step3.Domain.ProductsManagememt.Events;
-using CQRS_step3.Domain.Store.Events;
+using CQRS_step3.Events;
 
 namespace CQRS_step3.Domain.Store.Models
 {

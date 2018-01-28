@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CQRS_step3.Domain.ProductsManagememt.Events
+namespace CQRS_step3.Events
 {
     public class ProductAddedEvent : INotification
     {

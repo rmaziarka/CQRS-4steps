@@ -58,8 +58,12 @@
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper.SqlBuilder, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.SqlBuilder.1.50.4\lib\net451\Dapper.SqlBuilder.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -82,7 +86,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -156,7 +162,22 @@
     <Compile Include="Database\201801252324249_Initial.Designer.cs">
       <DependentUpon>201801252324249_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\201801291033125_CreateProductReadModel.cs" />
+    <Compile Include="Database\201801291033125_CreateProductReadModel.Designer.cs">
+      <DependentUpon>201801291033125_CreateProductReadModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\CqrsDatabaseMigrationsConfiguration.cs" />
+    <Compile Include="Database\Repositories\ProductReadModelRepository.cs" />
+    <Compile Include="Domain\Store\EventHandlers\FieldValueChangedEventHandler.cs" />
+    <Compile Include="Domain\Store\EventHandlers\OrderCompletedEventHandler.cs" />
+    <Compile Include="Domain\Store\EventHandlers\ProductAddedEventHandler.cs" />
+    <Compile Include="Domain\Store\EventHandlers\ReviewAddedEventHandler.cs" />
+    <Compile Include="Domain\Store\IProductReadModelRepository.cs" />
+    <Compile Include="Domain\Store\Queries\GetProductsQuery.cs" />
+    <Compile Include="Domain\Store\QueryHandlers\GetProductQueryHandler.cs" />
+    <Compile Include="Infrastructure\JsonObjectTypeHandler.cs" />
+    <Compile Include="Infrastructure\NonPublicPropertiesResolver.cs" />
+    <Compile Include="Infrastructure\TransactionBehavior.cs" />
     <Compile Include="WebApiConfig.cs" />
     <Compile Include="Domain\Orders\CommandHandlers\CompleteOrderCommandHandler.cs" />
     <Compile Include="Domain\Orders\Models\Order.cs" />
@@ -168,7 +189,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Domain\Orders\Commands\CompleteOrderCommand.cs" />
-    <Compile Include="Domain\Orders\Events\OrderCompletedEvent.cs" />
+    <Compile Include="Events\OrderCompletedEvent.cs" />
     <Compile Include="Domain\ProductsManagememt\Commands\AddProductCommand.cs" />
     <Compile Include="Domain\ProductsManagememt\Commands\ChangeFieldValueCommand.cs" />
     <Compile Include="Domain\ProductsManagememt\Models\Category.cs" />
@@ -178,15 +199,18 @@
     <Compile Include="Database\CqrsDatabase.cs" />
     <Compile Include="Domain\Store\Models\ProductReadModel.cs" />
     <Compile Include="Api\OrdersController.cs" />
-    <Compile Include="Domain\ProductsManagememt\Events\ProductAddedEvent.cs" />
-    <Compile Include="Domain\ProductsManagememt\Events\FieldValueChangedEvent.cs" />
+    <Compile Include="Events\ProductAddedEvent.cs" />
+    <Compile Include="Events\FieldValueChangedEvent.cs" />
     <Compile Include="Domain\Store\Commands\AddReviewCommand.cs" />
-    <Compile Include="Domain\Store\Events\ReviewAddedEvent.cs" />
+    <Compile Include="Events\ReviewAddedEvent.cs" />
     <Compile Include="Api\ProductsManagementController.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Api\StoreController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\MigrationFiles\ProductReadModel-Creation.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -201,11 +225,15 @@
     <EmbeddedResource Include="Database\201801252324249_Initial.resx">
       <DependentUpon>201801252324249_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Database\201801291033125_CreateProductReadModel.resx">
+      <DependentUpon>201801291033125_CreateProductReadModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

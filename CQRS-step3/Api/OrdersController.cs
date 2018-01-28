@@ -19,7 +19,7 @@ namespace CQRS_step3.Api
 
         [HttpPost]
         [Route("")]
-        public async Task<int> CompleteOrder([FromUri]CompleteOrderCommand command)
+        public async Task<int> CompleteOrder(CompleteOrderCommand command)
         {
             return await this._mediator.Send(command);
         }

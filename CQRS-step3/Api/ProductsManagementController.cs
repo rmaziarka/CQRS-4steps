@@ -18,14 +18,14 @@ namespace CQRS_step3.Api
         }
 
         [HttpGet]
-        [Route("product")]
-        public async Task<int> AddProduct([FromUri]AddProductCommand command)
+        [Route("products")]
+        public async Task<int> AddProduct(AddProductCommand command)
         {
             return await this._mediator.Send(command);
         }
 
         [HttpPut]
-        [Route("fieldValue/{fieldValueId}")]
+        [Route("fieldValues/{fieldValueId}")]
         public async Task ChangeFieldValue(int fieldValueId, ChangeFieldValueCommand command)
         {
             command.FieldValueId = fieldValueId;

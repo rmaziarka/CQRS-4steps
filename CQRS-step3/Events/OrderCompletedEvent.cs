@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CQRS_step3.Domain.Orders.Events
+namespace CQRS_step3.Events
 {
     public class OrderCompletedEvent : INotification
     {

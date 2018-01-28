@@ -1,7 +1,7 @@
 ﻿using CQRS_step3.Database;
 using CQRS_step3.Domain.Orders.Commands;
-using CQRS_step3.Domain.Orders.Events;
 using CQRS_step3.Domain.Orders.Models;
+using CQRS_step3.Events;
 using MediatR;
 
 namespace CQRS_step3.Domain.Orders.CommandHandlers

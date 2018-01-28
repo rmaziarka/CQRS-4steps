@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CQRS_step3.Domain.Store.Events
+namespace CQRS_step3.Events
 {
     public class ReviewAddedEvent : INotification
     {
