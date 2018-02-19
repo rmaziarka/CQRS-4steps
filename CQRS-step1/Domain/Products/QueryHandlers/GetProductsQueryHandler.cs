@@ -12,19 +12,10 @@ namespace CQRS_step1.Domain.Products.QueryHandlers
     public class GetProductsQueryHandler: IRequestHandler<GetProductsQuery, IEnumerable<Product>>
     {
         private readonly ProductDatabase _database;
-        private readonly ICategoryFieldService _categoryFieldService;
-        private readonly IFieldValidatorFactory _fieldValidatorFactory;
-        private readonly IProductFieldHelper _productFieldHelper;
 
-        public GetProductsQueryHandler(ProductDatabase database,
-            ICategoryFieldService categoryFieldService,
-            IProductFieldHelper productFieldHelper,
-            IFieldValidatorFactory fieldValidatorFactory)
+        public GetProductsQueryHandler(ProductDatabase database)
         {
             _database = database;
-            _categoryFieldService = categoryFieldService;
-            _productFieldHelper = productFieldHelper;
-            _fieldValidatorFactory = fieldValidatorFactory;
         }
 
         public IEnumerable<Product> Handle(GetProductsQuery message)
