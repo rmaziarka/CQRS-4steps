@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using CQRS_step0.Controllers.Dto;
 using CQRS_step0.Models;
 using CQRS_step0.Services;
 using CQRS_step0.Services.Products;
@@ -27,7 +28,7 @@ namespace CQRS_step0.Controllers
 
         [HttpPut]
         [Route("{productId}/category")]
-        public void ChangeCategory(int productId)
+        public void ChangeProductFieldValue(int productId)
         {
         }
     }

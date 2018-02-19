@@ -7,6 +7,8 @@ namespace CQRS_step0.Models
 {
     public class FieldValue
     {
+        public int Id { get; set; }
+
         public int FieldId { get; set; }
 
         public Field Field { get; set; }
@@ -14,12 +16,12 @@ namespace CQRS_step0.Models
 
     public class IntegerFieldValue : FieldValue
     {
-        public int Value { get; set; }
+        public int IntegerValue { get; set; }
     }
 
     public class StringFieldValue : FieldValue
     {
-        public string Value { get; set; }
+        public string StringValue { get; set; }
     }
 
     // etc.

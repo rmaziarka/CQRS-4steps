@@ -4,8 +4,6 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using CQRS_step0.Models;
-using CQRS_step0.Services;
-using CQRS_step0.Services.Categories;
 using CQRS_step0.Services.Products;
 
 namespace CQRS_step0

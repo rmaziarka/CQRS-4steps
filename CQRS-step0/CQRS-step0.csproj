@@ -152,8 +152,12 @@
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\ValidationRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Products\ChangeProductCategoryDto.cs" />
-    <Compile Include="Services\Products\GetProductsDto.cs" />
+    <Compile Include="Controllers\Dto\ChangeProductFieldValueDto.cs" />
+    <Compile Include="Controllers\Dto\GetProductsDto.cs" />
+    <Compile Include="Services\Fields\IValidator.cs" />
+    <Compile Include="Services\Products\ICategoryFieldService.cs" />
+    <Compile Include="Services\Fields\IFieldValidatorFactory.cs" />
+    <Compile Include="Services\Fields\IProductFieldHelper.cs" />
     <Compile Include="Services\Products\IProductsService.cs" />
     <Compile Include="Services\Products\ProductsService.cs" />
   </ItemGroup>

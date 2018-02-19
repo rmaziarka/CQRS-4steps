@@ -17,4 +17,8 @@ namespace CQRS_step0.Models
 
         public IEnumerable<ValidationRule> ValidationRules { get; set; }
     }
+
+    public class IntegerField : Field { }
+
+    public class StringField : Field { }
 }

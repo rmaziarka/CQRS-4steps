@@ -12,6 +12,6 @@ namespace CQRS_step1.Models
 
         public Category Category { get; set; }
 
-        public IEnumerable<Field> FieldValues  { get; set; }
+        public IEnumerable<FieldValue> FieldValues  { get; set; }
     }
 }

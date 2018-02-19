@@ -150,14 +150,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Domain\Categories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Domain\Products\ChangeProductCategoryCommand.cs" />
-    <Compile Include="Domain\Products\ChangeProductCategoryCommandHandler.cs" />
-    <Compile Include="Domain\Products\GetProductsQuery.cs" />
+    <Compile Include="Domain\Products\Commands\ChangeProductFieldValueCommand.cs" />
+    <Compile Include="Domain\Products\CommandHandlers\ChangeProductFieldValueCommandHandler.cs" />
+    <Compile Include="Domain\Products\QueryHandlers\GetProductsQueryHandler.cs" />
+    <Compile Include="Domain\Products\Query\GetProductsQuery.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +167,10 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ICategoryFieldService.cs" />
+    <Compile Include="Services\IFieldValidatorFactory.cs" />
+    <Compile Include="Services\IProductFieldHelper.cs" />
+    <Compile Include="Services\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

@@ -12,7 +12,7 @@ namespace CQRS_step0.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Field> Attributes { get; set; }
+        public DbSet<Field> Fields { get; set; }
 
     }
 
@@ -45,7 +45,7 @@ namespace CQRS_step0.Models
 
             context.SaveChanges();
 
-            context.Attributes.AddRange(
+            context.Fields.AddRange(
                 new List<Field>()
                 {
                     new Field()

@@ -2,10 +2,12 @@
 using CQRS_step0.Models;
 using System.Linq;
 using System.Data.Entity;
+using CQRS_step0.Controllers.Dto;
+using CQRS_step0.Services.Fields;
 
 namespace CQRS_step0.Services.Products
 {
-    public class ProductsService: IProductsService
+    public class ProductsService : IProductsService
     {
         private readonly ProductDatabase _database;
         private readonly ICategoryFieldService _categoryFieldService;
@@ -77,11 +79,11 @@ namespace CQRS_step0.Services.Products
             return products;
         }
 
-        public void ChangeProductFieldValue(ChangeProductFieldValueDto dto)
+        public int ChangeProductFieldValue(ChangeProductFieldValueDto dto)
         {
             this._categoryFieldService.ValidateIfFieldCanBeAssignedToProduct(dto.FieldId, dto.ProductId);
 
-            var fieldValidator = this._fieldValidatorFactory(dto.FieldId);
+            var fieldValidator = this._fieldValidatorFactory.GetValidator(dto.FieldId);
 
             fieldValidator.Validate(dto.FieldValue);
 
@@ -93,7 +95,7 @@ namespace CQRS_step0.Services.Products
 
             if (fieldValue == null)
             {
-                this._productFieldHelper.AttachValueToField(product, dto.FieldId, dto.FieldValue);
+                fieldValue = this._productFieldHelper.AttachValueToField(product, dto.FieldId, dto.FieldValue);
             }
             else
             {
@@ -101,6 +103,8 @@ namespace CQRS_step0.Services.Products
             }
 
             _database.SaveChanges();
+
+            return fieldValue.Id;
         }
     }
 }
